@@ -1,0 +1,7 @@
+alias X='rdesktop -g 90% -5 -K -u "cjm" -r clipboard:PRIMARYCLIPBOARD localhost -T HC4 -z'
+alias x=exit
+alias c=clear
+alias at='~/ivorytower/bin/addtech.sh'
+alias lt='~/ivorytower/bin/listtech.sh'
+alias st='~/ivorytower/bin/showtech.sh'
+alias psqlme='psql -U cjm cjm'

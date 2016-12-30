@@ -1,0 +1,16 @@
+cd ~/ivorytower/docker_neo4j
+docker pull ubuntu:16.04
+docker build -t 'name:Neo1' .
+docker run -it -p 7474:7474 name:Neo1
+sudo su - cjm
+./setup_as_user.sh
+exit
+dockcer ps -a
+#note the top container id
+docker commit <CONTAINER ID> cjm:Neo2
+docker run -it -p 7474:7474 cjm:Neo2
+sudo su - cjm
+./run_neo4j.sh
+visit localhost:7474 on the host
+login as neo4j/neo4j
+set the password to something good/memorable

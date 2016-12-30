@@ -1,0 +1,15 @@
+./reset.sh
+./run_docker.sh
+sudo su - cjm
+./setup_as_user.sh
+changed bolt to 0.0.0.0
+changed  ../lib to point to the real location
+changed neo4j
+./run_neo4j.sh
+(Enter)
+sudo ./nn.sh
+(12345)
+on the host, go to http://localhost:8080/neo4j.html
+try this:
+create (n:MapItem {name:"hi"})
+Run

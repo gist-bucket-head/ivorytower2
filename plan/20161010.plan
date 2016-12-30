@@ -1,0 +1,12 @@
+Watch the docker video.
+Postgres with a simple form.
+Finish installing postgres in a docker container and be able to use pgadmin3 on it, and have it be reproducible and be able to drop and restore the database.
+Run docker containers on startup
+Backup docker containers.
+Run different ones interchangably all the time, with the same data.
+Focus on using Ubuntu and Docker and Postgres.
+Docker registry that is stored in S3.
+Start docker containers on start up, and start things inside them.
+https://docker.github.io/engine/admin/host_integration/
+Try this: http://tecadmin.net/install-postgresql-server-on-ubuntu/#
+See also: https://hub.docker.com/_/postgres/

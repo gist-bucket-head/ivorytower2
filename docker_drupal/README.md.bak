@@ -1,0 +1,44 @@
+Docker Image For Drupal
+===============
+
+Goals
+---
+First Drupal 7 with mysql, then have it on postgresql.  Post simple data. Back it up to aws.
+Then try Drupal 8  Then later add in java and elastic, broadleaf commerce, kafka
+
+Steps
+---
+- write pull_ubuntu.sh and test
+```
+#!/usr/bin/env bash
+docker pull ubuntu:16.04
+```
+
+- try `docker run -it -p 83:83 ubuntu:16.04`
+- make a Dockerfile
+```
+FROM ubuntu:16.04
+MAINTAINER Linktu Meboxen
+RUN apt-get update
+ARG NEW_PASS
+```
+- Make a docker_build.sh file:
+```
+#!/usr/bin/env bash
+./pull_ubuntu.sh
+docker build --build-arg NEW_PASS=12345 -t 'drupal:cjm1' .
+```
+- run it: `./docker_build.sh`
+
+- Make a file run_docker.sh:
+```
+#!/usr/bin/env bash
+docker run -it -p 83:83 "drupal:cjm1"
+```
+
+- run that: `./run_docker.sh`
+
+- modify the Dockerfile
+```
+
+apt-get install php5 php5-mysql php5-gd php5-curl libssh2-php

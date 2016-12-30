@@ -1,0 +1,24 @@
+#!/bin/bash
+# script 1
+sudo apt-get update
+sudo apt-get install -y xauth x11-apps firefox xrdp xfce4 rdesktop
+sed -i 's/\. \/etc\/X11\/Xsession/startxfce4/g' /etc/xrdp/startwm.sh
+sed -i 's/# HOME=\/home/HOME=\/home/g' /etc/default/useradd
+
+# script 2
+# usage 1: scr.sh 1 cjm1 cjm1pass
+# usage 1: scr.sh 0 cjm2 cjm2pass
+# cjm1 will have sudo and cjm2 will not
+#!/bin/bash
+SUDO_PERMISSIONS=$1
+NEW_USER=$2
+NEW_PASS=$3
+TEMP_PASSWORD=$NEW_PASS
+TEMP_ENCRYPTED_PASSWORD=`perl -e 'printf("%s\n", crypt($ARGV[0], "password"))' "$TEMP_PASSWORD"`
+if [ $SUDO_PERMISSIONS == 1 ]; then
+  useradd -m -p $TEMP_ENCRYPTED_PASSWORD -s /bin/bash $NEW_USER -G sudo
+  sudo bash -c 'echo "'$NEW_USER' ALL=(ALL:ALL) ALL" | (EDITOR="tee -a" visudo)'
+else
+  useradd -m -p $TEMP_ENCRYPTED_PASSWORD -s /bin/bash $NEW_USER
+fi
+sudo -H -u $NEW_USER bash -c 'echo xfce4-session >~/.xsession'

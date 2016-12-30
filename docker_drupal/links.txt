@@ -1,0 +1,11 @@
+http://idroot.net/linux/install-drupal-ubuntu-16-04/
+http://stackoverflow.com/questions/36788873/package-php5-have-no-installation-candidate-ubuntu-16-04
+https://www.linuxbabe.com/linux-server/drupal-8-ubuntu-16-04-nginx-mariadb-php7
+https://www.linuxbabe.com/linux-server/install-nginx-mariadb-php7-lemp-stack-ubuntu-16-04-lts
+https://rhatdan.wordpress.com/2014/04/30/running-systemd-within-a-docker-container/
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04
+http://geekyplatypus.com/dockerise-your-php-application-with-nginx-and-php7-fpm/
+https://github.com/RobLoach/docker-compose-drupal/blob/master/docker-compose.yml
+http://localhost:8000/core/install.php?langcode=en&profile=standard
+https://docs.docker.com/compose/overview/
+https://hub.docker.com/_/drupal/

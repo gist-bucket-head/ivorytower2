@@ -1,0 +1,40 @@
+#see https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04
+apt-get -qq -y install apache2
+sudo /etc/init.d/apache2 restart
+curl localhost
+sudo apt-get install mysql-server
+(Noexit)
+#sudo apt-get install php5 libapache2-mod-php5
+sudo apache2ctl configtest
+#error
+append line "ServerName 0.0.0.0" to /etc/apache2/apache2.conf
+sudo apache2ctl configtest
+#syntax ok
+sudo apt install ufw -y
+sudo ufw app info "Apache Full"
+sudo ufw allow in "Apache Full"
+#didn't work , something about being root, but we are root
+#show the ip addr:
+ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
+sudo apt-get install curl
+curl http://icanhazip.com
+sudo apt-get install mysql-server
+#skipped other steps
+sudo apt-get install -y php libapache2-mod-php php-mcrypt php-mysql
+sudo vim /etc/apache2/mods-enabled/dir.conf
+#(make index.php first)
+touch /var/www/html/index.php
+vim /var/www/html/index.php
+<?php
+echo "hello"
+?>
+sudo apache2ctl restart
+#errors
+exit
+docker commit <id>
+docker images
+docker run -it -d <img id> /sbin/init
+sudo apt-get update
+sudo apt install lxc1 -y
+docker ps --no-trunc
+lxc-attach -n <full container id>
